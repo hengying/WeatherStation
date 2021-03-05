@@ -17,7 +17,12 @@ class WeatherSpider:
         try:
             r = requests.get(url, timeout=10)
             r.raise_for_status()  # 如果响应状态码不是 200，就主动抛出异常
+            """
         except requests.RequestException as e:
+            print(e)
+            weather_data.get_ok = False
+            """
+        except Exception as e:
             print(e)
             weather_data.get_ok = False
         else:
@@ -60,7 +65,12 @@ class WeatherSpider:
         try:
             r = requests.get(url, timeout=10)
             r.raise_for_status()  # 如果响应状态码不是 200，就主动抛出异常
+            """
         except requests.RequestException as e:
+            print(e)
+            weather_data.get_airquality_ok = False
+            """
+        except Exception as e:
             print(e)
             weather_data.get_airquality_ok = False
         else:
